@@ -138,6 +138,7 @@ html.no-plate .plate::after{display:none}
   -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
   -webkit-mask-position:50% 50%;mask-position:50% 50%;
   -webkit-mask-size:calc(100% * (1 + .7 * var(--stay))) calc(100% * (1 + .7 * var(--stay)));mask-size:calc(100% * (1 + .7 * var(--stay))) calc(100% * (1 + .7 * var(--stay)))}
+.hero .hero-ph{-webkit-mask-image:none;mask-image:none}
 .hero-ph img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;transform:scale(calc(1.06 - .06 * var(--f) + .08 * var(--stay)))}
 .hero-shade{position:absolute;inset:0;background:
   radial-gradient(58% 52% at 50% 50%,rgba(11,12,14,.62) 0%,rgba(11,12,14,.18) 100%),

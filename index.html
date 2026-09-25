@@ -29,7 +29,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wdth,wght@75,800&family=Inter:wght@400;500;600&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/hero.webp" media="(min-width:761px)">
 <link rel="preload" as="image" href="assets/hero-m.webp" media="(max-width:760px)">
-<link rel="stylesheet" href="styles.css?v=20260925-1">
+<link rel="stylesheet" href="styles.css?v=20260925-2">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"LocalBusiness","name":"WXT Trade","alternateName":"WUXINTONG International Trade company","description":"Производство изделий из нержавеющей стали в Алматы: ресторанное оборудование, облицовка лифтов, перила и ограждения, ёмкости и трубопроводы, декоративные экраны, лазерная резка, гибка, сварка, полировка, продажа нержавеющего металлопроката.","url":"https://songokura.github.io/wxt-trade/","telephone":"+77007333705","image":"https://songokura.github.io/wxt-trade/assets/og-image.jpg","address":{"@type":"PostalAddress","streetAddress":"пр. Рыскулова 232/2","addressLocality":"Алматы","addressCountry":"KZ"},"geo":{"@type":"GeoCoordinates","latitude":43.252511,"longitude":76.839477},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"09:00","closes":"19:00"},"sameAs":["https://2gis.kz/almaty/geo/70030077017443817/76.839477,43.252511"],"areaServed":[{"@type":"City","name":"Алматы"},{"@type":"City","name":"Астана"}],"knowsAbout":["Ресторанное оборудование из нержавеющей стали","Облицовка лифтов","Перила и ограждения","Лазерная резка металла","Нержавеющий металлопрокат"]}
 </script>
@@ -52,6 +52,9 @@
     <path d="M292 14H499L521 36V88L499 110H292L270 88V36Z" pathLength="1"/><path d="M571 14H764L786 36V88L764 110H571L549 88V36Z" pathLength="1"/><path d="M836 14H1029L1051 36V88L1029 110H836L814 88V36Z" pathLength="1"/><path d="M1101 14H1308L1330 36V88L1308 110H1101L1079 88V36Z" pathLength="1"/>
     <path d="M292 790H499L521 812V864L499 886H292L270 864V812Z" pathLength="1"/><path d="M571 790H764L786 812V864L764 886H571L549 864V812Z" pathLength="1"/><path d="M836 790H1029L1051 812V864L1029 886H836L814 864V812Z" pathLength="1"/><path d="M1101 790H1308L1330 812V864L1308 886H1101L1079 864V812Z" pathLength="1"/>
   </symbol>
+  <!-- в герое только центральный контур: вокруг текста одна рамка, без мелких ячеек -->
+  <symbol id="lat-d1" viewBox="0 0 1600 900" preserveAspectRatio="none"><path d="M304 124H1296L1330 158V742L1296 776H304L270 742V158Z" pathLength="1"/></symbol>
+  <symbol id="lat-m1" viewBox="0 0 900 1600" preserveAspectRatio="none"><path d="M154 300H746L776 330V1270L746 1300H154L124 1270V330Z" pathLength="1"/></symbol>
   <symbol id="lat-m" viewBox="0 0 900 1600" preserveAspectRatio="none">
     <path d="M154 300H746L776 330V1270L746 1300H154L124 1270V330Z" pathLength="1"/>
     <path d="M34 14H76L96 34V506L76 526H34L14 506V34Z" pathLength="1"/><path d="M34 574H76L96 594V1026L76 1046H34L14 1026V594Z" pathLength="1"/><path d="M34 1094H76L96 1114V1566L76 1586H34L14 1566V1114Z" pathLength="1"/>
@@ -104,7 +107,7 @@
 
 <main>
 
-<!-- ГЕРОЙ: лист нержавейки, в котором лазер вырезает решётку арт-экрана. Сквозь ячейки - фото, по скроллу центральное окно раскрывается на весь экран -->
+<!-- ГЕРОЙ: полноэкранное фото, лазер прочерчивает одну рамку вокруг текста, по скроллу рамка уходит за края экрана -->
 <div class="pw pw-hero" id="top">
   <section class="plate hero" id="hero" aria-label="Изделия из нержавеющей стали в Алматы" data-i-aria="a.hero">
     <div class="hero-bg" aria-hidden="true"></div>
@@ -115,19 +118,17 @@
       </picture>
       <div class="hero-shade"></div>
     </div>
-    <svg class="hero-lines lines-d" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true"><use href="#lat-d"/><circle class="spark spark-d" r="6"/></svg>
-    <svg class="hero-lines lines-m" viewBox="0 0 900 1600" preserveAspectRatio="none" aria-hidden="true"><use href="#lat-m"/><circle class="spark spark-m" r="7"/></svg>
+    <svg class="hero-lines lines-d" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true"><use href="#lat-d1"/><circle class="spark spark-d" r="6"/></svg>
+    <svg class="hero-lines lines-m" viewBox="0 0 900 1600" preserveAspectRatio="none" aria-hidden="true"><use href="#lat-m1"/><circle class="spark spark-m" r="7"/></svg>
     <div class="hero-in">
       <p class="kicker" data-i="hero.k">Алматы · цех 2000 м² · лазер 6×2 м</p>
       <h1 class="h1"><span data-i="hero.t1">Изделия из</span><span class="big" data-i="hero.t2">нержавейки</span></h1>
-      <p class="lead" data-i="hero.lead">Оборудование для общепита и пищевых производств, облицовка лифтов, перила, ёмкости - по чертежу, фото или образцу. Ответ на заявку за 15 минут, бесплатный замер, гарантия 12 месяцев.</p>
+      <p class="lead" data-i="hero.lead">Оборудование для общепита, облицовка лифтов, перила и ёмкости по вашему чертежу. Бесплатный замер, гарантия 12 месяцев.</p>
       <div class="cta">
         <a class="btn btn-wa" href="https://wa.me/77007333705" data-wa="hero" target="_blank" rel="noopener"><svg width="18" height="18"><use href="#ic-wa"/></svg><span data-i="hero.b1">Рассчитать стоимость</span></a>
         <a class="btn btn-ghost" href="#zayavka"><span data-i="hero.b2">Бесплатный замер</span><svg width="16" height="16" style="fill:none"><use href="#ic-arr"/></svg></a>
       </div>
     </div>
-    <div class="hud" aria-hidden="true"><span id="hudx">X 0000.0</span><span id="hudy">Y 0000.0</span><span class="hud-w">6000 W</span><span id="hudp" data-i="hud.p">РЕЗ 0%</span></div>
-    <div class="ticker-w" aria-hidden="true"><div class="ticker" id="ticker"></div></div>
   </section>
 </div>
 
@@ -163,7 +164,7 @@
       </div>
       <div class="cut duo" aria-hidden="true">
         <img src="assets/restoran.webp" alt="" width="1000" height="612" loading="lazy" decoding="async">
-        <img class="second" src="assets/restoran-2.webp" alt="" width="514" height="664" loading="lazy" decoding="async">
+        <img class="second" src="assets/restoran-kuhnya.webp" alt="" width="795" height="1075" loading="lazy" decoding="async">
         <svg class="cut-l cl-d" viewBox="0 0 1600 900" preserveAspectRatio="none"><use href="#lat-d"/></svg>
         <svg class="cut-l cl-m" viewBox="0 0 900 1600" preserveAspectRatio="none"><use href="#lat-m"/></svg>
       </div>
@@ -295,7 +296,7 @@
     <svg class="prod-lat cl-d" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true"><use href="#lat-d"/></svg>
     <svg class="prod-lat cl-m" viewBox="0 0 900 1600" preserveAspectRatio="none" aria-hidden="true"><use href="#lat-m"/></svg>
     <div class="prod-obj" aria-hidden="true">
-      <img class="o1" src="assets/prokat-otvody.webp" alt="" width="700" height="664" loading="lazy" decoding="async">
+      <img class="o1" src="assets/prokat-otvody-2.webp" alt="" width="1024" height="969" loading="lazy" decoding="async">
       <img class="o2" src="assets/prokat-truby-kr.webp" alt="" width="760" height="321" loading="lazy" decoding="async">
       <img class="o3" src="assets/prokat-truby-pr.webp" alt="" width="560" height="607" loading="lazy" decoding="async">
     </div>
@@ -467,6 +468,6 @@
   <a class="bar-wa" href="https://wa.me/77007333705" data-wa="hero" target="_blank" rel="noopener"><svg width="18" height="18"><use href="#ic-wa"/></svg><span>WhatsApp</span></a>
 </div>
 
-<script src="script.js?v=20260925-1" defer></script>
+<script src="script.js?v=20260925-2" defer></script>
 </body>
 </html>

@@ -28,7 +28,7 @@ window.SITE_EN = {
     "hero.k": "Almaty · 2000 m² workshop · laser 6×2 m",
     "hero.t1": "Stainless steel",
     "hero.t2": "products",
-    "hero.lead": "Equipment for restaurants and food plants, elevator cladding, railings, tanks - from your drawing, photo or sample. Reply within 15 minutes, free site measurement, 12-month warranty.",
+    "hero.lead": "Restaurant equipment, elevator cladding, railings and tanks made to your drawing. Free site measurement, 12-month warranty.",
     "hero.b1": "Get a quote", "hero.b2": "Free measurement", "hud.p": "CUT 0%",
     "a.trust": "About the company",
     "t.f1": "Own workshop in Almaty, full-cycle machinery", "t.u2": "m", "t.f2": "Sheet laser cutting and 3D tube cutting", "t.u3": "months", "t.f3": "Warranty on products and installation, any payment method", "t.u4": "years", "t.f4": "Partner plant Wuxintong: own metal stock, short lead times",
