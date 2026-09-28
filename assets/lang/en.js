@@ -109,6 +109,7 @@ window.SITE_EN = {
     "kt.geo": "We work across Almaty and the region and ship to Astana, Turkestan and Zhambyl regions.",
     "a.home2": "WXT Trade",
     "ft.1": "WXT Trade · stainless steel products · Almaty",
+    "ft.3": "BIN 260140005294",
     "ft.2": "© 2026 WXT Trade. Prices depend on order complexity and are quoted individually.",
     "a.bar": "Quick contact", "bar.call": "Call"
   }
