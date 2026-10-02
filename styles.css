@@ -302,6 +302,8 @@ html.no-plate .cut{height:56svh;min-height:320px}
 .kphone{display:block;font:800 clamp(30px,3.4vw,44px)/1 var(--fd);font-stretch:75%;color:#fff;white-space:nowrap}
 .kphone:hover{color:var(--gold2)}
 .kline{margin-top:10px;font-size:14px;color:var(--mute)}
+.kmail{display:inline-block;margin-top:10px;font-size:15px;color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.28);transition:border-color .2s}
+.kmail:hover{border-color:var(--gold)}
 .kbtns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
 .kaddr{margin-top:26px;font-style:normal}
 .kaddr b{display:block;font:600 16px/1.3 var(--ft);color:#fff}

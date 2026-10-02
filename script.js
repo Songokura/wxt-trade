@@ -1,6 +1,6 @@
 (function(){
 "use strict";
-var WA = "77007333705";
+var WA = "77012465555";
 
 var RED = matchMedia("(prefers-reduced-motion: reduce)").matches || document.documentElement.classList.contains("no-plate");
 var HAS_IO = typeof IntersectionObserver === "function";
@@ -16,7 +16,7 @@ document.addEventListener("click", function(e){
   if (!a) return;
   var h = a.getAttribute("href") || "";
   if (h.indexOf("tel:") === 0) conv("phone");
-  else if (h.indexOf("wa.me") > -1) conv("contact");
+  else if (h.indexOf("wa.me") > -1 || h.indexOf("mailto:") === 0) conv("contact");
 }, true);
 
 var CS = document.currentScript;

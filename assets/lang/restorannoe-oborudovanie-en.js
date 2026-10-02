@@ -90,7 +90,7 @@ window.SITE_EN = {
   "nav.kt": "Contacts",
   "lp.all": "All products",
   "a.lang": "Site language",
-  "a.call": "Call +7 700 733 37 05",
+  "a.call": "Call +7 701 246 55 55",
   "a.mnav": "Mobile menu",
   "a.lpnav": "Other services",
   "h.k": "Almaty · AISI 304 · free measurement",

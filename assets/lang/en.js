@@ -20,7 +20,7 @@ window.SITE_EN = {
     "m.desc": "Stainless steel fabrication in Almaty: equipment for restaurants and food plants, elevator cladding, railings, tanks, decorative screens. Laser cutting up to 6x2 m, 2000 m² workshop, 12-month warranty, free site measurement.",
     "m.ogt": "WXT Trade - stainless steel products in Almaty",
     "m.ogd": "Restaurant equipment, elevator cladding, railings, tanks, screens and any product from your drawing. Laser cutting up to 6x2 m, own 2000 m² workshop, 12-month warranty.",
-    "a.menu": "Menu", "a.home": "WXT Trade, home", "a.nav": "Site sections", "a.lang": "Site language", "a.call": "Call +7 700 733 37 05", "a.mnav": "Mobile menu",
+    "a.menu": "Menu", "a.home": "WXT Trade, home", "a.nav": "Site sections", "a.lang": "Site language", "a.call": "Call +7 701 246 55 55", "a.mnav": "Mobile menu",
     "nav.re": "Food service", "nav.li": "Elevators", "nav.us": "Products", "nav.ob": "Processing", "nav.pr": "Steel stock", "nav.kt": "Contacts",
     "c.ek": "Art screens", "c.pe": "Railings", "c.em": "Tanks", "c.dv": "Doors", "c.pv": "Coloured stainless", "nav.et": "How we work",
     "a.hero": "Stainless steel products in Almaty",
