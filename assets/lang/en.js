@@ -1,4 +1,3 @@
-/* English dictionary for WXT Trade. Loaded only on EN or ?lang=en. */
 window.SITE_EN = {
   hud: "CUT",
   wa: {
@@ -111,6 +110,7 @@ window.SITE_EN = {
     "ft.1": "WXT Trade · stainless steel products · Almaty",
     "ft.3": "BIN 260140005294",
     "ft.2": "© 2026 WXT Trade. Prices depend on order complexity and are quoted individually.",
+    "a.flinks": "Services", "ft.l1": "Restaurant equipment", "ft.l2": "Tanks and vessels", "ft.l3": "Railings and fences", "ft.l4": "Laser cutting", "c.more": "Learn more", "re.more": "More about the equipment", "ob.more": "More about cutting and processing",
     "a.bar": "Quick contact", "bar.call": "Call"
   }
 };

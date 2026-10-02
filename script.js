@@ -1,20 +1,11 @@
-/* ============================================================
-   WXT TRADE - скрипт страницы.
-   Плиты и лазерный раскрой (герой и фото-плиты) · перевод RU/KZ/EN
-   (словари kk и en грузятся по кнопке из assets/lang/) · меню · бегущие
-   ленты · палитра со стрелками · WhatsApp с готовым текстом · форма в
-   WhatsApp. Библиотек нет.
-   ============================================================ */
 (function(){
 "use strict";
-var WA = "77007333705";              /* для wa.me */
+var WA = "77007333705";
 
-var RED = matchMedia("(prefers-reduced-motion: reduce)").matches || document.documentElement.classList.contains("no-plate"); /* no-plate - плоская копия для съёмки */
+var RED = matchMedia("(prefers-reduced-motion: reduce)").matches || document.documentElement.classList.contains("no-plate");
 var HAS_IO = typeof IntersectionObserver === "function";
 var root = document.documentElement;
 
-/* ---------------- КОНВЕРСИИ GOOGLE ADS ----------------
-   Ярлыки задаёт index.html (window.WXT_CONV): phone, contact, lead. Пусто - не шлём. */
 function conv(key){
   var id = (window.WXT_CONV || {})[key];
   if (!id || typeof window.gtag !== "function") return;
@@ -28,16 +19,20 @@ document.addEventListener("click", function(e){
   else if (h.indexOf("wa.me") > -1) conv("contact");
 }, true);
 
-/* ---------------- СЛОВАРИ ----------------
-   Казахский и английский лежат в assets/lang/kk.js и assets/lang/en.js и грузятся только
-   по выбору языка (или ?lang= / сохранённый выбор). В разметке и здесь казахского текста нет -
-   проверка Google Ads видит русский сайт. */
-var ASSET_V = ((document.currentScript && document.currentScript.src.match(/[?&]v=([^&]+)/)) || [])[1] || "";
-var LANGS = {};                      /* lang -> {dict, wa, tick, form, hud} */
+var CS = document.currentScript;
+var SELF = (CS && CS.src) || "";
+var ASSET_V = (SELF.match(/[?&]v=([^&]+)/) || [])[1] || "";
+var BASE = SELF ? SELF.replace(/[?#].*$/, "").replace(/[^\/]*$/, "") : "";
+var LANG_FILE = {
+  kk: (CS && CS.getAttribute("data-kk")) || "kk.js",
+  en: (CS && CS.getAttribute("data-en")) || "en.js"
+};
+var LP = window.WXT_LP || {};
+var LANGS = {};
 function loadLang(lang, done){
   if (lang === "ru" || LANGS[lang]) return done();
   var s = document.createElement("script");
-  s.src = "assets/lang/" + lang + ".js" + (ASSET_V ? "?v=" + ASSET_V : "");
+  s.src = BASE + "assets/lang/" + LANG_FILE[lang] + (ASSET_V ? "?v=" + ASSET_V : "");
   s.onload = function(){
     var pack = lang === "kk" ? window.SITE_KK : window.SITE_EN;
     if (pack) LANGS[lang] = pack;
@@ -57,9 +52,10 @@ var WA_RU = {
 var TICK_RU = ["Ресторанное оборудование","Облицовка лифтов","Перила и ограждения","Ёмкости и трубопроводы","Арт-экраны","Входные группы","Лазерная резка 6×2 м","Гибка и сварка","Полировка","Нержавеющий прокат","Цветная нержавейка PVD"];
 var BRANDS = ["PepsiCo Central Asia","Супермаркеты Small","Усть-Каменогорская птицефабрика","Базис-А","Птицефабрика Прима Кус"];
 var FORM_RU = {hello:"Здравствуйте! Заявка на расчёт с сайта WXT Trade.", name:"Имя", what:"Что нужно", phone:"Телефон", msg:"Комментарий", none:"не выбрано"};
+if (LP.wa) for (var wk in LP.wa) WA_RU[wk] = LP.wa[wk];
+if (LP.hello) FORM_RU.hello = LP.hello;
 var HUD_RU = "РЕЗ";
 
-/* ---------------- ПЕРЕВОД ---------------- */
 var RU = {};
 function snapshot(){
   document.querySelectorAll("[data-i]").forEach(function(el){ if (RU[el.dataset.i] === undefined) RU[el.dataset.i] = el.innerHTML; });
@@ -72,8 +68,6 @@ function snapshot(){
 function curLang(){ return root.lang === "kk" ? "kk" : (root.lang === "en" ? "en" : "ru"); }
 function pick(k, d){ return (d && d[k] !== undefined) ? d[k] : RU[k]; }
 
-/* ссылки WhatsApp собираются заранее (при смене языка), а не в момент клика -
-   так трекер LeadBot спокойно дописывает код обращения в href */
 function setWaLinks(){
   var p = pack(), W = (p && p.wa) || WA_RU;
   document.querySelectorAll("[data-wa]").forEach(function(a){
@@ -127,8 +121,7 @@ function applyLang(lang){
   fitText();
   requestAnimationFrame(fitText);
 }
-/* ?lang= в URL сильнее localStorage: русское объявление не должно открыть казахскую версию.
-   Язык по navigator.language не угадываем - казахский и английский только явным выбором. */
+
 function initLang(){
   var url = new URLSearchParams(location.search).get("lang");
   var saved = null;
@@ -144,7 +137,6 @@ document.querySelectorAll(".lang button").forEach(function(b){
   b.addEventListener("click", function(){ setLang(b.getAttribute("data-lang")); });
 });
 
-/* дисплейные строки: казахский длиннее - ужимаем, пока не влезет */
 function fitText(){
   document.querySelectorAll(".h1 span, .kphone").forEach(function(el){
     el.style.fontSize = "";
@@ -158,7 +150,6 @@ function fitText(){
   });
 }
 
-/* ---------------- БЕГУЩИЕ СТРОКИ ---------------- */
 function fillRow(el, list, speed){
   if (!el) return;
   var one = list.map(function(t){ return "<b>" + t + "</b>"; }).join("");
@@ -181,7 +172,6 @@ var rsTimer;
 addEventListener("resize", function(){ clearTimeout(rsTimer); rsTimer = setTimeout(function(){ fillTicker(); fitText(); palState(); }, 200); });
 if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ fillTicker(); fitText(); });
 
-/* ---------------- МЕНЮ ---------------- */
 var burger = document.getElementById("burger");
 var mnav = document.getElementById("mnav");
 function closeMenu(){
@@ -195,8 +185,6 @@ if (burger) burger.addEventListener("click", function(){
 if (mnav) mnav.addEventListener("click", function(e){ if (e.target.closest("a")) closeMenu(); });
 addEventListener("keydown", function(e){ if (e.key === "Escape") closeMenu(); });
 
-/* ---------------- ЯКОРЯ ----------------
-   Плиты (.pw) встают на верх экрана, обычные секции и карточки - под шапку. */
 var HH = function(){ return parseFloat(getComputedStyle(root).getPropertyValue("--hh")) || 70; };
 function goTo(id, smooth){
   var t = document.getElementById(id); if (!t) return false;
@@ -216,13 +204,9 @@ document.addEventListener("click", function(e){
   try { history.pushState(null, "", "#" + id); } catch(err){}
 });
 
-/* ---------------- ШАПКА ---------------- */
 var hdr = document.getElementById("hdr");
 function hdrState(){ if (hdr) hdr.classList.toggle("solid", scrollY > 40); }
 
-/* ---------------- ПЛИТЫ ----------------
-   Один слушатель scroll через rAF. На каждую .pw пишем --enter/--exit/--stay и --open
-   (раскрытие решётки у фото-плит). Герой получает --f (интро: лазер прочерчивает решётку). */
 function clamp(v){ return v < 0 ? 0 : (v > 1 ? 1 : v); }
 function easeOut(t){ return 1 - Math.pow(1 - t, 2.4); }
 var heroPw = document.getElementById("top");
@@ -234,7 +218,7 @@ var hudx = document.getElementById("hudx"), hudy = document.getElementById("hudy
 var introK = 1, introDone = true;
 function hud(f, stay){
   if (!hudx) return;
-  /* координаты головы лазера: по интро идёт по контуру окна, по скроллу - раскрытие */
+
   var p = f;
   var x = p < .5 ? 1220 * (p / .5) : 1220 * (1 - (p - .5) / .5);
   var y = p < .5 ? 0 : 3050 * ((p - .5) / .5);
@@ -281,8 +265,7 @@ if (RED) {
   }, {passive:true});
   addEventListener("resize", update);
   addEventListener("load", update);
-  /* интро 1500 мс: лазер прочерчивает решётку, сквозь ячейки проступает кадр, текст поднимается.
-     Пропускаем при хэше / прокрутке - человек из рекламы сразу видит собранный экран. */
+
   var skip = location.hash || scrollY > 80;
   if (skip) {
     root.classList.add("no-intro");
@@ -313,7 +296,6 @@ addEventListener("hashchange", function(){
   setTimeout(function(){ goTo(id, false); }, 420);
 });
 
-/* ---------------- ПОЯВЛЕНИЕ В КАТАЛОЖНЫХ СЕКЦИЯХ ---------------- */
 if (HAS_IO) {
   if (!RED) root.classList.add("js");
   var io = new IntersectionObserver(function(es){
@@ -327,7 +309,6 @@ if (HAS_IO) {
   document.querySelectorAll(".rv").forEach(function(el){ el.classList.add("in"); });
 }
 
-/* ---------------- ПАЛИТРА: стрелки листают ровно одну карточку ---------------- */
 var pal = document.getElementById("pal"), palPrev = document.getElementById("palPrev"), palNext = document.getElementById("palNext");
 function palStep(){
   var li = pal && pal.querySelector("li"); if (!li) return 160;
@@ -350,12 +331,11 @@ if (pal) {
   addEventListener("load", palState);
 }
 
-/* ---------------- ФОРМА → WhatsApp ---------------- */
 var form = document.getElementById("form");
 if (form) form.addEventListener("submit", function(e){
   e.preventDefault();
   var ok = document.getElementById("fmok"), err = document.getElementById("fmerr");
-  if (form.company && form.company.value) return;          /* honeypot */
+  if (form.company && form.company.value) return;
   var phone = form.phone.value.trim();
   if (phone.replace(/\D/g, "").length < 10) { err.hidden = false; ok.hidden = true; form.phone.focus(); return; }
   err.hidden = true;
@@ -368,13 +348,12 @@ if (form) form.addEventListener("submit", function(e){
   window.open("https://wa.me/" + WA + "?text=" + encodeURIComponent(t), "_blank", "noopener");
 });
 
-/* ---------------- СТАРТ ---------------- */
 snapshot();
 initLang();
 fillTicker();
 fitText();
 hdrState();
-/* прямой переход по якорю: встать на блок, интро уже пропущено */
+
 if (location.hash) {
   var hid = location.hash.slice(1);
   if (document.getElementById(hid)) {

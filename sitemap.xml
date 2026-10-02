@@ -2,11 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://wxt-trade.kz/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="ru" href="https://wxt-trade.kz/?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://wxt-trade.kz/?lang=en"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://wxt-trade.kz/"/>
+  </url>
+  <url>
+    <loc>https://wxt-trade.kz/restorannoe-oborudovanie/</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wxt-trade.kz/restorannoe-oborudovanie/?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wxt-trade.kz/restorannoe-oborudovanie/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wxt-trade.kz/restorannoe-oborudovanie/"/>
+  </url>
+  <url>
+    <loc>https://wxt-trade.kz/emkosti/</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wxt-trade.kz/emkosti/?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wxt-trade.kz/emkosti/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wxt-trade.kz/emkosti/"/>
+  </url>
+  <url>
+    <loc>https://wxt-trade.kz/perila/</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wxt-trade.kz/perila/?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wxt-trade.kz/perila/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wxt-trade.kz/perila/"/>
+  </url>
+  <url>
+    <loc>https://wxt-trade.kz/lazernaya-rezka/</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wxt-trade.kz/lazernaya-rezka/?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wxt-trade.kz/lazernaya-rezka/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wxt-trade.kz/lazernaya-rezka/"/>
   </url>
 </urlset>
